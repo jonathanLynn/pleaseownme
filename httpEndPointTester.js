@@ -12,11 +12,8 @@ var promise = new Promise((resolve,reject) => {
     //This array has both the playbook and URL glued together
     var httpEndpoint = []
 
-    //This array holds the responses to each of the fetch requests
-    var httpEndpointResults = []
-
     //This is the HTTP endpoint URL.
-    var url = 'https://guardpoint.com.au'
+    var url = 'https://google.com.au'
     
     //Loop that iterates through the playBook and glues it to the HTTP endpoint.
     var i = 0
@@ -24,17 +21,21 @@ var promise = new Promise((resolve,reject) => {
         httpEndpoint.push(url + playBook[i])
     }
 
-    //Loop that Fetches each of the completed HTTP Endpoints.
-    for (i = 0; i < playBook.length; i++) {
-        const response = fetch(httpEndpoint[i]);
-        httpEndpointResults.push(response)
-    }
-    resolve(httpEndpointResults);
+//    //Loop that Fetches each of the completed HTTP Endpoints.
+//    for (i = 0; i < playBook.length; i++) {
+//        const response = fetch(httpEndpoint[i]);
+//        httpEndpointResults.push(response)
+//    }
+    resolve(httpEndpoint);
   
 });
 promise.then((result) => {
-
-        console.log(result)
+    
+    var i = 0
+    for (i = 0; i < result.length; i++) {
+        console.log(result[i])
+    }
+        
   
 }).catch((error) => {
   

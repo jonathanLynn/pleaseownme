@@ -21,23 +21,21 @@ var promise = new Promise((resolve,reject) => {
         httpEndpoint.push(url + playBook[i])
     }
 
-//    //Loop that Fetches each of the completed HTTP Endpoints.
-//    for (i = 0; i < playBook.length; i++) {
-//        const response = fetch(httpEndpoint[i]);
-//        httpEndpointResults.push(response)
-//    }
     resolve(httpEndpoint);
   
 });
 promise.then((result) => {
     
+    //Takes the Completed HTTP endpoint and fetches the result.
     var i = 0
+    var httpEndpointResults = []
     for (i = 0; i < result.length; i++) {
-        console.log(result[i])
+         fetch(result[i]).then(console.log)
+    
     }
         
-  
-}).catch((error) => {
+}
+).catch((error) => {
   
     console.log(error);
   

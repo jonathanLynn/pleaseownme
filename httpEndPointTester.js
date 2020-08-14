@@ -30,7 +30,9 @@ promise.then((result) => {
     var i = 0
     var httpEndpointResults = []
     for (i = 0; i < result.length; i++) {
-         fetch(result[i]).then(console.log)
+         fetch(result[i])
+            .then(console.log)
+            //You can add more .then statements here!!
     
     }
         

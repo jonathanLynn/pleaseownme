@@ -13,7 +13,9 @@ var promise = new Promise((resolve,reject) => {
     var playBook = [
         '/people/1',
         '/people/2',
-        '/people/3'
+        '/people/3',
+        '/api/v3/login', 
+        '/api/app/login',
     ]
 
     //This array has both the playbook and URL glued together
@@ -57,14 +59,7 @@ promise.then((result) => {
             console.log("Success!!", data);
             }
             });
-        })
-        
-        //fetch(result[i])
-         //.then(res) => {
-         //return res.json()
-         //.then((data)) => {
-         //console.log(data);
-              
+        })            
                 }
       
         }     

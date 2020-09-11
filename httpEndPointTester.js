@@ -14,8 +14,8 @@ var promise = new Promise((resolve,reject) => {
         '/people/1',
         '/people/2',
         '/people/3',
-        '/api/v3/login', 
-        '/api/app/login',
+        '/people/4',
+        '/people/5',
     ]
 
     //This array has both the playbook and URL glued together
@@ -48,8 +48,9 @@ promise.then((result) => {
             var params = {
                 TableName: 'pleaseownme', 
                 Item: {
-                    'DOMAIN_NAME' : {S: url}, 
-                    'RESULT' : {S: data["name"]} 
+                    'DOMAIN_NAME' : {S: (new Date()).getTime().toString(36) + Math.random().toString(36).slice(2)}, 
+                    //'RESULT' : {S: data["name"]}
+                    'RESULT' : {S: JSON.stringify(url) + data}
                       }
                             };
             ddb.putItem(params, function(err, data) {
@@ -61,7 +62,7 @@ promise.then((result) => {
             });
         })            
                 }
-      
+     
         }     
 
 ).catch((error) => {

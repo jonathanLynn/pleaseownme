@@ -50,7 +50,7 @@ promise.then((result) => {
                 Item: {
                     'DOMAIN_NAME' : {S: (new Date()).getTime().toString(36) + Math.random().toString(36).slice(2)}, 
                     //'RESULT' : {S: data["name"]}
-                    'RESULT' : {S: JSON.stringify(url) + data}
+                    'RESULT' : {S: JSON.stringify(url) + JSON.stringify(data)}
                       }
                             };
             ddb.putItem(params, function(err, data) {
